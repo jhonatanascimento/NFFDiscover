@@ -11,8 +11,8 @@ route.get('/create-pass', (req, res) => res.render("create-pass"))
 route.get('/room/:room', (req, res) => res.render("room"))
 
 // Formato que o formulario de dentro da modal tem que passar a informação
-route.post('/room/:room/:question/:action', QuestionController.index)
-route.post('/room/create-room', RoomController.create)
+route.post('/question/:room/:question/:action', QuestionController.index)
+route.post('/create-room', RoomController.create)
 
 
 
