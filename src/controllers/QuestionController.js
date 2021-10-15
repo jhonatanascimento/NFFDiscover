@@ -9,5 +9,10 @@ module.exports = {
 
 
 
+    },
+
+    create(req,res){
+        const question = req.body.question;
+        const room = req.params.room
     }
 }
