@@ -22,30 +22,23 @@ deleteButton.forEach(button => {
     button.addEventListener("click", (event) => handleClick(event, false))
     })
 
-//Botão cancelar da modal
-const btnModalCancelar = document.querySelector('.modal .buttons .cancel')
-
-btnModalCancelar.addEventListener('click', event => {
-    modal.close()
-})
-
-
-function handleClick(event, check = true){
-    const text = check ? "Marcar como lida" : "Excluir"
-    const slug = check ? "check" : "delete"
-
-    const roomId = document.querySelector('#room-id').dataset.id
-    const questionID = event.target.dataset.id
-
-
-    const form = document.querySelector('.modal form')
-    form.setAttribute("action", `/room/${roomId}/${questionID}/${slug}`)
-
-    modalTitle.innerHTML = `${text} essa pergunta`
-    modalDescription.innerHTML = `Tem certeza que deseja ${text.toLowerCase()} esta pergunta?`
-    modalButton.innerHTML = `Sim, ${text.toLowerCase()} `
-    check? modalButton.classList.remove("red") : modalButton.classList.add("red")
-    modal.open()
-}
+    function handleClick(event, check = true){
+        event.preventDefault()
+        const text = check ? "Marcar como lida" : "Excluir"
+        const slug = check ? "check" : "delete"
+        const roomId = document.querySelector("#room-id").dataset.id
+        const questionId = event.target.dataset.id
+    
+        const form = document.querySelector(".modal form")
+        form.setAttribute("action", `/question/${roomId}/${questionId}/${slug}`)
+    
+        modalTitle.innerHTML= `${text} esta pergunta`
+        modalDescription.innerHTML= `Tem certeza que deseja ${text.toLowerCase()} esta pergunta?`
+        modalButton.innerHTML= `Sim, ${text.toLowerCase()}`
+        check ? modalButton.classList.remove("red") : modalButton.classList.add("red")
+        
+        //abrir modal
+        modal.open()
+    }
 
 
