@@ -35,31 +35,8 @@
 
         <main>
             <div class="container">
-                <section>
-                    <h2>Entre como participante</h2>
-                    <form action="">
-                        <label for="room-id" class="sr-only">Código da sala</label>
-                        <input type="number" id="room-id" placeholder="Código da sala">
-                        <button>
-                            <img src="/images/enter-room.svg" alt="entrar na sala">
-                            Entrar na sala
-                        </button>
-                    </form>
-                </section>
-    
-                <div class="separator">
-                    <div></div>
-                    <div>ou</div>
-                    <div></div>
-                </div>
-    
-                <section>
-                    <h2>Crie sua própria sala de forma fácil</h2>
-                    <a href="/create-pass" class="button outlined">
-                        <img src="/images/users.svg" alt="entrar na sala">
-                        Criar Sala
-                    </a>
-                </section>
+                 <!-- Vai renderizar a part correta de acordo com a url-->
+                 <%- include(`parts/${page}`)  %>
             </div>
         </main>
 
